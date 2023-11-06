@@ -5,11 +5,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 
-@AllArgsConstructor     //[04.리팩터링] 생성자 자동생성 어노테이션
-@ToString               //[04.리팩터링]toString 매서드 자동생성
+@AllArgsConstructor
+@NoArgsConstructor //[05장] 기본 생성자 자동으로 추가
+@ToString
 @Entity
 public class Article {
     @Id
