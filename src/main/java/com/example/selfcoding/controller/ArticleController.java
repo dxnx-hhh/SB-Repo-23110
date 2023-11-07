@@ -27,21 +27,17 @@ public class ArticleController {
 
     @PostMapping("/articles/create")
     public String createArticle(ArticleForm form) {
-        System.out.println("---------------------------------------------------");
-        log.info("form 데이터 로그: " + form.toString());     //[04.리팩터링] 아래 println을 로깅코드로 대체 (form데이터 잘 받았는지)
-        System.out.println("form 데이터 println(): " + form.toString());
 
-        System.out.println("---------------------------------------------------");
+        log.info("form 데이터: " + form.toString());
+
         Article article = form.toEntity();
         log.info("DTO -> Entity 변환 로그: " + article.toString());     //[04.리팩터링] 아래 println을 로깅코드로 대체 (DTO가 엔티티로 잘 변환되는지 확인)
-        System.out.println("DTO -> Entity 변환 println(): " + article.toString());
         Article saved = articleRepository.save(article);
 
-        System.out.println("---------------------------------------------------");
 
         log.info("DB 저장 확인 로그: " + saved.toString());      //[04.리팩터링] 아래 println을 로깅코드로 대체 (article이 DB에 잘 저장되는지 확인)
-        System.out.println("DB 저장 확인 println(): " + saved.toString());
-        return "";
+
+        return "redirect:/articles/" + saved.getId();
     }
 
 

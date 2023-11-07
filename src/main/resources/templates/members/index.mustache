@@ -1,0 +1,22 @@
+{{>layouts/header}}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#memberList}}  <!-- articleList 사용할 범위를 지정한다. 변수가 데이터 묶음일 경우, 그 안의 코드를 반속실행. 마치 for문처럼!-->
+    <tr>
+        <th scope="row">{{id}}</th>
+        <td colspan="2">{{email}}</td>
+        <td>{{password}}</td>
+    </tr>
+    {{/memberList}}
+    </tbody>
+</table>
+
+{{>layouts/footer}}
