@@ -1,0 +1,21 @@
+{{>layouts/header}}
+
+{{#article}}
+<form class="container" action="/articles/update" method="post">
+    <div class="mb-3">
+        <!-- 수정 폼에선 id가 몇 번인 article을 수정하는지 알려워야 하므로 <input?태그를 만들어 value에 id 속성을 추가한다. -->
+        <!-- 화면에 표시할 필요 없으므로 hidden 속성으로 작성 -->
+        <input name="id" type="hidden" value="{{id}}">
+        <label class="form-label">제목</label>
+        <input type="text" class="form-control" name="title" value="{{title}}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">내용</label>
+        <textarea class="form-control" rows="3" name="content">{{content}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/articles/{{article.id}}">Back</a>
+</form>
+{{/article}}
+
+{{>layouts/footer}}
