@@ -48,3 +48,10 @@
         </div>
     </div>
 </nav>
+
+{{#msg}}   <!-- [08] 1. 메세지 사용 범위 설정 -->
+    <div class="alert alert-primary alert-dismissible">  <!-- [08] 2. 메세지 창 작성 -->
+        {{msg}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{{/msg}}

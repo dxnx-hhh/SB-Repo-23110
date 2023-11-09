@@ -7,9 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,6 +98,23 @@ public class ArticleController {
         return "redirect:/articles/" + articleEntity.getId();
     }
 
+    @GetMapping("/articles/{id}/delete")  //HTML은 DELETE 메서드를 지원하지 않으므로, GET 방식으로 진행함
+    public String delete(@PathVariable Long id, RedirectAttributes rttr) {
+        log.info("삭제 요청 들어옴");  //delete 메서드 작동여부 확인
+
+        //1. 삭제할 대상 가져오기
+        Article target = articleRepository.findById(id).orElse(null);
+        log.info(target.toString());
+
+        //2. 대상 엔티티 삭제하기
+        if(target != null) {
+            articleRepository.delete(target);
+            rttr.addFlashAttribute("msg", "삭제됨");
+        }
+
+        //3. 결과 페이지로 리다이렉트
+        return "redirect:/articles";
+    }
 
 
 }
