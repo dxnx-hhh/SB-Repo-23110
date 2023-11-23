@@ -60,7 +60,8 @@
 
 #### < Part 3 REST API와 테스트 코드 작성하기 >
  
-#### 10장 REST API와 JSON
+#### 10장 REST API와 JSON 
+(*** 개념이라 깃에는 따로 커밋X)
 - 10.1 REST API와 JSON의 등장 배경
 - 10.2 REST API 동작 살펴보기
 
