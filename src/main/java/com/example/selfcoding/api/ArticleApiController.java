@@ -4,10 +4,12 @@ import com.example.selfcoding.dto.ArticleForm;
 import com.example.selfcoding.entity.Article;
 import com.example.selfcoding.repository.ArticleRepository;
 import com.example.selfcoding.service.ArticleService;
+import com.example.selfcoding.service.CommentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,7 +36,7 @@ public class ArticleApiController {
 
 
     @GetMapping("/api/articles/{id}")
-    public Article show(@PathVariable Long id) {
+    public Article show(@PathVariable Long id, Model model) {
         return articleService.show(id);
     }
 //    @GetMapping("/api/articles/{id}")

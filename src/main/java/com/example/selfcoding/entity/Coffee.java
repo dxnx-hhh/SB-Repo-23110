@@ -21,6 +21,6 @@ public class Coffee {
     private String name;
 
     @Column
-    private String price ;
+    private String price;
 
 }
