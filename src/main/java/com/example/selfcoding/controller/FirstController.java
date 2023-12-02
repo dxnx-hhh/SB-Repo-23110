@@ -13,7 +13,7 @@ public class FirstController {
         }
 
         @GetMapping("bye")
-    public String seYouNext(Model model) {
+        public String seYouNext(Model model) {
             model.addAttribute("username", "동동");
             return "goodbye";
         }

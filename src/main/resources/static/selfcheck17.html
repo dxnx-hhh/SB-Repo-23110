@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>셀프체크 17</title>
+</head>
+<body>
+<h1>Hello, <span id="target">World</span>!</h1>
+<input type="text" id="text-input">
+<button id="send-btn">전송</button>
+<script>
+    // 요소 가져오기
+    const inputElement = document.querySelector("#text-input");
+    const buttonElement = document.querySelector("#send-btn");
+    // 클릭 이벤트 감지하기
+    buttonElement.addEventListener("click", function() {
+        // input 값 가져오기
+        const str = inputElement.value;
+        // input 값 비우기
+        inputElement.value = "";
+        // 특정 요소의 텍스트를 변경하는 innerText
+        target.innerText = str;
+    });
+</script>
+</body>
+</html>
+
+<!-- http://localhost:8080/selfcheck17.html
+    'resources/static' 폴더에 있는 파일들은 URL을 통해 바로 접근이 가능 -->
